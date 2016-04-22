@@ -7,6 +7,7 @@ Version: 1.0.7
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 Text Domain: wp-sweep
+Domain Path: /languages/
 License: GPL2
 */
 
@@ -71,7 +72,7 @@ class WPSweep {
         add_action( 'plugins_loaded', array( $this, 'add_hooks' ) );
 
         // Load Translation
-        load_plugin_textdomain( 'wp-sweep' );
+		load_plugin_textdomain( 'wp-sweep' , false , plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 
         // Plugin Activation/Deactivation
         register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
